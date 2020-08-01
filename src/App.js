@@ -1,26 +1,26 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Calendar from './Calendar.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const style = {
+  position: "relative",
+  margin: "50px auto"
+}
+
+class App extends React.Component {
+  onDayClick = (e, day) => {
+    alert(day);
+  }
+  
+  render() {
+    return (
+      <div className="App">
+        <Calendar style={style} width="302px" 
+          onDayClick={(e, day)=> this.onDayClick(e, day)}/>     
+      </div>
+    );
+  }
 }
 
 export default App;
